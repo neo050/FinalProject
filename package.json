@@ -1,0 +1,24 @@
+{
+  "name": "final-project-on-the-tardes-application",
+  "version": "1.0.0",
+  "description": "Final project on the Trades application for collecting information about users and then entering them into a neural network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neo050/FinalProject.git"
+  },
+  "author": "nehorai hagag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neo050/FinalProject/issues"
+  },
+  "homepage": "https://github.com/neo050/FinalProject#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3",
+    "threads-api": "^1.6.3"
+  }
+}
