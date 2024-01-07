@@ -1,7 +1,10 @@
 // Importing necessary modules and functions
-const { fetchUserData,fetchUserComments,fetchPosts } = require('./api');
-const UserProfile = require('./models/userProfile');
-import fs from 'fs';
+
+
+import { fetchUserData, fetchUserComments, fetchPosts } from './api.js';
+
+// Your remaining code...
+import { UserProfile } from './models/userProfile.js';
 
 // Function to build a user profile
 async function buildUserProfile(username) {
@@ -22,25 +25,28 @@ async function buildUserProfile(username) {
     return userProfile;
 }
 
-
-
-
-
-
-
-import ThreadsAPI from 'threads-api';
-
-const threadsAPI = new ThreadsAPI.ThreadsAPI();
-
-
-
 async function main() {
     const username = 'nehorai_hagag';
-    const activities = await fetchUserActivities(username);
-    activities.forEach(activity => console.log(JSON.stringify(activity, null, 2)));
+    const activities = await buildUserProfile(username);
+    console.log(JSON.stringify(activities, null, 2));
 }
 
 main().catch(console.error);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 // Main function to execute the application logic

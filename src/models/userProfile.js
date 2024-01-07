@@ -1,4 +1,4 @@
-class UserProfile {
+export class UserProfile {
     constructor(userData) {
         this.username = userData.username;
         this.posts = [];
@@ -19,4 +19,3 @@ class UserProfile {
     }
 }
 
-module.exports = UserProfile;

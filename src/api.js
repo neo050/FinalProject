@@ -1,7 +1,8 @@
 import APIClient from "threads-api";
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-dotenv.config({ path: './My.env' });
+dotenv.config({ path: '../.env' });
+
 
 // Initialize the Threads API client
 const threadsAPI = new APIClient.ThreadsAPI({
@@ -9,21 +10,33 @@ const threadsAPI = new APIClient.ThreadsAPI({
     password: process.env.THREADS_API_PASSWORD, // Your environment variable for password
     deviceID: 'android-2a2fz9pk7phc00000'
   });
+  console.log(process.env.THREADS_API_USERNAME);
+
+console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 
 
-  async function fetchUserData(username) {
+
+  export  async function fetchUserData(username) {
     const userID = await threadsAPI.getUserIDfromUsername(username);
     if (!userID) {
         throw new Error(`User ID not found for username: ${username}`);
     }
-    return await threadsAPI.getUserProfile(username, userID);
+    const userData = await threadsAPI.getUserProfile(username, userID);
+    if (!userData || !userData.user) {
+        console.error(`User data not found for username: ${username}`);
+        return; // Or handle this scenario appropriately
+    }
+
+    onsole.log(userData); // Check the structure of userData
+
+    return userData;     
 }
 
 
 
 
 
-async function fetchPosts(username) {
+export async function fetchPosts(username) {
     // Get user ID from username
     const userID = await threadsAPI.getUserIDfromUsername(username);
     if (!userID) {
@@ -67,7 +80,7 @@ async function fetchPosts(username) {
 
 
 
-async function fetchUserComments(username) {
+export async function fetchUserComments(username) {
     const userID = await threadsAPI.getUserIDfromUsername(username);
 
     // Fetch posts and replies by the user
@@ -127,5 +140,5 @@ function extractURLs(text) {
 
 
 
-export { fetchUserData, fetchPosts, fetchUserComments };
+
 
